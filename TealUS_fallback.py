@@ -280,7 +280,7 @@ def main():
             # Record failure in the output
             results['Error'] = "Activation failed or timed out."
             # Write to CSV and exit
-            output_file = 'teal_output_US.csv'
+            output_file = 'teal_output_US_Fallback.csv'
             file_exists = os.path.isfile(output_file)
             df = pd.DataFrame([results])
             df.to_csv(output_file, mode='a', index=False, header=not file_exists)
@@ -459,7 +459,7 @@ def main():
                         results[f"{plan_name} ICCID"] = 'N/A'
                         results[f"{plan_name} Status"] = 'Plan change failed or timed out.'
                         results[f"{plan_name} Timestamp"] = 'N/A'
-                        output_file = 'teal_output_US.csv'
+                        output_file = 'teal_output_US_Fallback.csv'
                         file_exists = os.path.isfile(output_file)
                         df = pd.DataFrame([results])
                         df.to_csv(output_file, mode='a', index=False, header=not file_exists)
@@ -541,7 +541,7 @@ def main():
                 results[f"{plan_name} ICCID"] = 'N/A'
                 results[f"{plan_name} Status"] = 'Plan change failed or timed out.'
                 results[f"{plan_name} Timestamp"] = 'N/A'
-                output_file = 'teal_output_US.csv'
+                output_file = 'teal_output_US_Fallback.csv'
                 file_exists = os.path.isfile(output_file)
                 df = pd.DataFrame([results])
                 df.to_csv(output_file, mode='a', index=False, header=not file_exists)
@@ -574,7 +574,7 @@ def main():
 
         print(df.to_string(index=False))
 
-        output_file = 'teal_output_US.csv'
+        output_file = 'teal_output_US_Fallback.csv'
 
         # Check if the file exists to decide if headers are needed
         file_exists = os.path.isfile(output_file)
@@ -589,7 +589,7 @@ def main():
         results['Error'] = str(e)
 
         # Write to CSV
-        output_file = 'teal_output_US.csv'
+        output_file = 'teal_output_US_Fallback.csv'
         file_exists = os.path.isfile(output_file)
         df = pd.DataFrame([results])
         df.to_csv(output_file, mode='a', index=False, header=not file_exists)
