@@ -24,8 +24,8 @@ def already_active(eid: str, plan_uuid: str) -> bool:
     True  ➜  SIM already has this plan *active* – we can skip.
     False ➜  Plan missing or inactive – we still need to run assign-plan.
     """
-    rid = generate_request_id()
-    info_op = get_esim_info(eid, rid)
+    # get_esim_info now generates its own request_id and returns it
+    info_op, rid = get_esim_info(eid)
     # we need the finished operation-result
     time.sleep(30)
     info = get_operation_result(rid)
